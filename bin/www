@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+var debug = require('debug')('HelloNodeJS');
+var app = require('../app');
+
+app.set('port', app.get('port') || 3000);
+
+var server = app.listen(app.get('port'), function() {
+	debug('Express server listening on port ' + server.address().port);
+
+	console.log('%s running in %s mode on port %s', app.get('title'), app.get('env'), app.get('port'));
+});
+
